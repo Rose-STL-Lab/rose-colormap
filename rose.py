@@ -1,4 +1,3 @@
-import numpy as np
 import matplotlib.colors as mcolors
 
 
@@ -36,20 +35,6 @@ def make_colormap(seq) -> mcolors.LinearSegmentedColormap:
     return mcolors.LinearSegmentedColormap('CustomMap', cdict)
 
 
-def mpl_to_plotly(cmap, pl_entries: int = 255, r_digits: int = 2):
-    """
-    Convert matplotlib cmap to plotly colorscale
-    :param cmap: colormap
-    :param pl_entries: number of Plotly colorscale entries
-    :param r_digits: number of digits for rounding scale values
-    :return: plotly colorscale
-    """
-    scale = np.linspace(0, 1, pl_entries)
-    colors = (cmap(scale)[:, :3]*255).astype(np.uint8)
-    pl_colorscale = [[round(s, r_digits), f'rgb{tuple(color)}'] for s, color in zip(scale, colors)]
-    return pl_colorscale
-
-
 rose_muted = make_colormap(color_list([
                 (24, 51, 46),
                 (73, 121, 107),
@@ -74,7 +59,3 @@ rose = make_colormap(color_list([
                 (213, 55, 107),
                 (157, 23, 69)]))
 
-
-if __name__ == '__main__':
-    print(issubclass(type(rose), mcolors.Colormap))
-    print(mpl_to_plotly(rose, 255))
