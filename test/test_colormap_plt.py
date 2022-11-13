@@ -88,7 +88,7 @@ def surface_plot(cm, cm_name):
 
     ax.zaxis.set_major_locator(plt.NullLocator())  # Remove z-axis as well
     fig.tight_layout()
-    plt.savefig(os.path.join(dirname, f'figs/wave_{cm_name}.png'))
+    plt.savefig(os.path.join(dirname, f'figs/surface_{cm_name}.png'))
     plt.show()
 
 
