@@ -95,6 +95,6 @@ def test_colormap_plotly(cm_name):
     from visualization.rose_colormap.plotly import rose, rose_muted, rose_vivid
 
     cm = locals()[cm_name]
-    # scatter_plot(cm, cm_name)
-    # wave_plot(cm, cm_name)
+    scatter_plot(cm, cm_name)
+    wave_plot(cm, cm_name)
     surface_plot(cm, cm_name)
